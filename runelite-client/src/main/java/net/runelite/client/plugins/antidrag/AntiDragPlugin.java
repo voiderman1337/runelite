@@ -86,7 +86,7 @@ public class AntiDragPlugin extends Plugin implements KeyListener
 		{
 			clientThread.invokeLater(() ->
 			{
-				inPvp = client.getVar(Varbits.PVP_SPEC_ORB) == 1;
+				inPvp = false;
 				if (!config.onShiftOnly() && !inPvp)
 				{
 					setDragDelay();
@@ -165,7 +165,7 @@ public class AntiDragPlugin extends Plugin implements KeyListener
 	@Subscribe
 	public void onVarbitChanged(VarbitChanged varbitChanged)
 	{
-		boolean currentStatus = client.getVar(Varbits.PVP_SPEC_ORB) == 1;
+		boolean currentStatus = false;
 
 		if (currentStatus != inPvp)
 		{
