@@ -73,12 +73,25 @@ public enum WorldType
 	 */
 	LEAGUE(1 << 30);
 
+
 	private final int mask;
 
 	WorldType(int mask)
 	{
 		this.mask = mask;
 	}
+
+	private static final EnumSet<WorldType> ALL_PVP_WORLD_TYPES = EnumSet.of(
+			HIGH_RISK,
+			DEADMAN,
+			DEADMAN_TOURNAMENT,
+			PVP
+	);
+
+	private static final EnumSet<WorldType> DEADMAN_WORLD_TYPES = EnumSet.of(
+			DEADMAN,
+			DEADMAN_TOURNAMENT
+	);
 
 	private static final EnumSet<WorldType> PVP_WORLD_TYPES = EnumSet.of(
 		DEADMAN, // dmmt worlds are also flaged as DEADMAN
@@ -135,4 +148,13 @@ public enum WorldType
 	{
 		return worldTypes.stream().anyMatch(PVP_WORLD_TYPES::contains);
 	}
+	public static boolean isAllPvpWorld(final Collection<WorldType> worldTypes)
+	{
+		return worldTypes.stream().anyMatch(ALL_PVP_WORLD_TYPES::contains);
+	}
+	public static boolean isDeadmanWorld(final Collection<WorldType> worldTypes)
+	{
+		return worldTypes.stream().anyMatch(DEADMAN_WORLD_TYPES::contains);
+	}
+
 }

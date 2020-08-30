@@ -152,6 +152,19 @@ public interface Actor extends Renderable
 	void setAnimation(int animation);
 
 	/**
+	 * Gets the graphic that is currently on the player.
+	 *
+	 * @return the graphic of the actor
+	 * @see GraphicID
+	 */
+
+	int getSpotAnimation();
+
+	void setSpotAnimation(int graphic);
+
+	void setSpotAnimationFrame(int spotAnimFrame);
+
+	/**
 	 * Sets the frame of the animation the actor is performing.
 	 *
 	 * @param actionFrame the animation frame
